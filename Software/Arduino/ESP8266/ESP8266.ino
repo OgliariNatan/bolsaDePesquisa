@@ -1,3 +1,7 @@
+/*Codigo teste para iluminaria inteligente
+ * 
+ * autor: 
+ */
 #include <ESP8266WiFi.h>
 #include "aREST.h"
 #include "aREST_UI.h"

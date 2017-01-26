@@ -5,7 +5,7 @@
 #include <ESP8266WiFi.h>
 #include "aREST.h"
 #include "aREST_UI.h"
-
+ int h, d, w;
 
 // Create aREST instance
 aREST_UI rest = aREST_UI();

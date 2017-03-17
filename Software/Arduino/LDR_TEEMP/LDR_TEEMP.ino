@@ -5,6 +5,8 @@ const int LM35 = A6;
 
 SoftwareSerial BTserial(10,11);// define RX/TX
 
+void updateBluetooth (float LM35Valor, int ldrValor);// Função de transferencia de dados para o Bluetooth
+
 void setup() {
  BTserial.begin(9600);
  pinMode(ledPin,OUTPUT); //define a porta 7 como saída
@@ -17,7 +19,7 @@ void loop() {
  float LM35Valor = 0;
  
  ldrValor = analogRead(LDR); //ler o valor do LDR, O valor lido será entre 0 e 1023
- LM35Valor = (float(analogRead(LM35))*5/(1023))/0.01;// Valor dado em °C
+ LM35Valor = ((float(analogRead(LM35))*5/(1023))/0.01 )- 5;// Valor dado em °C, """Não Calibrado"""""
  
  //imprime o valor lido do LDR no monitor serial
  //Serial.print ("LDR: ");
@@ -26,6 +28,13 @@ void loop() {
  //Serial.print ("LM35: ");
  //Serial.println(LM35);
  
+  updateBluetooth(LM35Valor, ldrValor);
+ 
+  delay(500);
+return 0;
+}
+
+void updateBluetooth (float LM35Valor, int ldrValor){
   BTserial.print("Temparatura");//Sensor 1
   BTserial.print(",");
   BTserial.print(LM35Valor);//Sensor 2
@@ -36,6 +45,6 @@ void loop() {
   BTserial.print(",");
   BTserial.print(ldrValor);//Sensor 5
   BTserial.print(";");
- 
-  delay(500);
-}
+  
+ return 0;
+  }

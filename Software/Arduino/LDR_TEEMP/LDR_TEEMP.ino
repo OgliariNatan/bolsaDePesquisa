@@ -1,7 +1,7 @@
-int ledPin = 13; //Led no pino 7
-int ldrPin = A6; //LDR no pino analígico 8
-int ldrValor = 0; //Valor lido do LDR
- 
+const int ledPin = 13; //Led interno da placa
+const int ldrPin = A6; //LDR no pino analígico 8 
+const int LM35 = A1;
+
 void setup() {
  pinMode(ledPin,OUTPUT); //define a porta 7 como saída
  Serial.begin(9600); //Inicia a comunicação serial
@@ -9,6 +9,7 @@ void setup() {
  
 void loop() {
  ///ler o valor do LDR
+ int ldrValor = 0;
  ldrValor = analogRead(ldrPin); //O valor lido será entre 0 e 1023
  
  //se o valor lido for maior que 500, liga o led

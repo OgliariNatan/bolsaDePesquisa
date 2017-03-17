@@ -15,9 +15,9 @@ void setup() {
 void loop() {
  ///ler o valor do LDR
  int ldrValor = 0;
- int LM35Valor = 0;
+ float LM35Valor = 0;
  ldrValor = analogRead(LDR); //O valor lido será entre 0 e 1023
- LM35Valor = analogRead(LM35); 
+ LM35Valor = (float(analogRead(LM35))*5/(1023))/0.01;// Valor dado em °C
  //se o valor lido for maior que 500, liga o led
  if (ldrValor>= 800) digitalWrite(ledPin,HIGH);
  // senão, apaga o led
@@ -30,15 +30,15 @@ void loop() {
  Serial.print ("LM35: ");
  Serial.println(LM35);
  
-BTserial.print("TESTE");
+BTserial.print("Temparatura");//Sensor 1
 BTserial.print(",");
-BTserial.print("Testado");
+BTserial.print(LM35Valor);//Sensor 2
 BTserial.print(",");
-BTserial.print("°C & LUX");
+BTserial.print("°C & LUX");//Sensor 3
 BTserial.print(",");
-BTserial.print(LM35Valor);
+BTserial.print("LUX");//Sensor 4
 BTserial.print(",");
-BTserial.print(ldrValor);
+BTserial.print(ldrValor);//Sensor 5
 BTserial.print(";");
  
  delay(500);

@@ -3,7 +3,7 @@ const int ledPin = 13; //Led interno da placa
 const int LDR = A3; //LDR no pino analígico 8 
 const int LM35 = A6;
 const int n = 5; //Valor de aquisições para realizar a media dos valores
-const int tempo_n = 100;
+const int tempo_n = 100; // intervalo entre as leituras
 
 SoftwareSerial BTserial(10,11);// define RX/TX
 

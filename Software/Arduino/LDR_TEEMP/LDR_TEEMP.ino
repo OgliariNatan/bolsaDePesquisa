@@ -1,8 +1,8 @@
 #include <SoftwareSerial.h>//bluetooth
 #define ledPin 13   //Led interno da placa
-#define LDR  A3     //LDR no pino analígico 8 
-#define LM35  A6
-#define n  5        //Valor de aquisições para realizar a media dos valores
+#define LDR    A3   //LDR no pino analígico 8 
+#define LM35   A6
+#define n      5    //Valor de aquisições para realizar a media dos valores
 #define tempo_n  100// intervalo entre as leituras
 
 SoftwareSerial BTserial(10, 11); // define RX/TX
@@ -18,11 +18,11 @@ void setup() {
 }
 
 void loop() {
-  int ldrValor = 0;
+  int   ldrValor  = 0;
   float LM35Valor = 0;
 
-  readIO(&LM35Valor, &ldrValor);
-  updateBluetooth(LM35Valor, ldrValor);
+  readIO (&LM35Valor, &ldrValor);
+  updateBluetooth (LM35Valor, ldrValor);
 
   //delay(500);
 }

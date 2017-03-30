@@ -13,6 +13,7 @@ void readIO (float *LM35Valor, int *ldrValor); // Função ler I/O
 void setup() {
   BTserial.begin(9600);
   pinMode(ledPin, OUTPUT); //define a porta 13 como saída
+  //analogReference(DEFAULT); //APAGAR
 
   //Serial.begin(9600); //Inicia a comunicação serial
 }
@@ -45,7 +46,7 @@ void updateBluetooth (float LM35Valor, int ldrValor) { //Função que envia os d
   BTserial.print(",");
   BTserial.print("LUX");//Sensor 3
   BTserial.print(",");
-  BTserial.print(6.2364 * ldrValor - 2785.6); //Sensor 4
+  BTserial.print(6.2516*ldrValor - 2795.3); //Sensor 4  6.2364 * ldrValor - 2785.6
   //BTserial.print(",");
   //BTserial.print(ldrValor);//Sensor 5
   BTserial.print(";");

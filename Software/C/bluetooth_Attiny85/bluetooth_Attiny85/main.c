@@ -7,6 +7,7 @@
 
 #include <avr/io.h>
 #include <avr/iotnx5.h>
+#define F_CPU 8000000UL //8Mhz
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
@@ -15,7 +16,7 @@
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 
-#define F_CPU 8000000UL //8Mhz
+
 #define BAUD 9600
 #define BRC        ((F_CPU/16/BAUD) - 1)
 #define RX_BUFFER_SIZE 128
@@ -28,20 +29,24 @@ char peekChar(void);
 
 int main(void)
 {
-	 volatile uint8_t UBRR0H;
-	 volatile uint8_t UBRR0L;
-	 UBRR0H = (BRC >> 8);    // set baud rate High
-	 UBRR0L = BRC;            // set baud rate Low
+	 //volatile uint8_t UBRR0H;
+	 //volatile uint8_t UBRR0L;
+	 //UBRR0H = (BRC >> 8);    // set baud rate High
+	 //UBRR0L = BRC;            // set baud rate Low
 	 
 	  // control & status register
 	  //UCSR0B = (1 << RXEN0) | (1 << RXCIE0);    // enable USART receiver, enables interrupt on the RXCn Flag
 	  //UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);    // set frame format, character size 5bit
 	  
-	  DDRB = (1 << _BV(PB4));    // PORTB3 is OUTPUT
+	  //DDRB = (1 << _BV(PB4));    // PORTB3 is OUTPUT
+	  PORTB = 0x11;
 	  
 	  //sei();    // set interrupt
 	CLKPR=_BV(CLKPCE);
 	CLKPR=0;			// set clock prescaler to 1 (attiny 25/45/85/24/44/84/13/13A)
+	
+	sei();                   // Enable all interrupts
+
 
 	//DDRB=_BV(PB4);		// Enable LED output pin
 
@@ -100,7 +105,7 @@ char getChar(void)
 #endif // DEBUG
 ISR(PCINT0_vect)//PCINT0_vect
 {
-	//FUnção AQUI
+	//updateBlue(int *dados); //a implementar
 	//uint8_t value;
 	//value = 1;             // Increment volatile variable
 }

@@ -25,14 +25,19 @@ void adc_init()
 	DIDR0|=(1<<ADC0D);
 }
 
-ISR(ADC_ADC_vect)
+ISR(ADC_vect)//ADC_ADC_vect
 {
 	unsigned int duty=0;
-	unsigned int temp=0;
-	char x;
+	//unsigned int temp=0;
+	//char x;
 	//duty=0.15*ADCH;
 	float y=0.153;
 	y=(float)(ADCH*y);
 	duty=(int)(y);
 	OCR0B=duty;
 }
+
+#ifdef DEBUG
+	//confserial();
+    //Adicionar uma comunicação serial
+#endif // DEBUG

@@ -10,10 +10,12 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
+//#define DEBUG //!<Ativa a depuração
+
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 
-#define F_CPU 8000000UL
+#define F_CPU 8000000UL //8Mhz
 #define BAUD 9600
 #define BRC        ((F_CPU/16/BAUD) - 1)
 #define RX_BUFFER_SIZE 128
@@ -79,15 +81,26 @@ char getChar(void)
 	return ret;
 }
 
-ISR(USART_RX_vect)
-{
+//ISR(USART_RX_vect)
+//{
 	//uint8_t UDR0;	// UDR0 == USIDR ??? VERIFICAR   problemas neste registrador, possivel que ñ seja este!!!!!!!!ATENÇÃO!!!!!!
-	rxBuffer[rxWritePos] = USIDR; //UDR0;
+	//rxBuffer[rxWritePos] = USIDR; //UDR0;
 	
-	rxWritePos++;
+	//rxWritePos++;
 	
-	if(rxWritePos >= RX_BUFFER_SIZE)
-	{
-		rxWritePos = 0;
-	}
+	//if(rxWritePos >= RX_BUFFER_SIZE)
+	//{
+		//rxWritePos = 0;
+	//}
+//}
+
+
+#ifdef DEBUG
+ //Adicionar uma comunicação serial
+#endif // DEBUG
+ISR(PCINT0_vect)//PCINT0_vect
+{
+	//FUnção AQUI
+	//uint8_t value;
+	//value = 1;             // Increment volatile variable
 }

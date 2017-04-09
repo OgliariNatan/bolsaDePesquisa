@@ -12,6 +12,7 @@
 #include <avr/interrupt.h>
 
 #include "ADC.h"
+//#define DEBUG
 
 void adc_init()
 {
@@ -24,19 +25,20 @@ void adc_init()
 	DIDR0|=(1<<ADC0D);
 	sei();
 }
-
+/*
 ISR(ADC_vect)//ADC_ADC_vect
 {
-	//unsigned int duty=0;
-	//unsigned int temp=0;
-	//char x;
-	//duty=0.15*ADCH;
-	//uint8_t y;
-	//y = ADCH;
-	//duty=(int)(y);
-	//OCR0B=duty;//output write
+	unsigned int duty=0;
+	unsigned int temp=0;
+	char x;
+	duty=0.15*ADCH;
+	uint8_t y;
+	y = ADCH;
+	duty=(int)(y);
+	OCR0B=duty;//output write
 }
 
+*/
 
 
 #ifdef DEBUG

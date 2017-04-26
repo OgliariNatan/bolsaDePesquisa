@@ -45,3 +45,4 @@ ISR(ADC_vect)//ADC_ADC_vect
 	//confserial();
     //Adicionar uma comunicação serial
 #endif // DEBUG
+

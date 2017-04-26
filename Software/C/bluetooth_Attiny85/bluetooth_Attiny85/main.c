@@ -13,7 +13,7 @@
 
 //#define DEBUG //!<Ativa a depuração
 
-#define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
+#define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(set_bit))//bit 
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 
 
@@ -54,6 +54,7 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
+		set_bit( 1 |< 0x1f)
     }
 }
 

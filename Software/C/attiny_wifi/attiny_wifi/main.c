@@ -4,14 +4,13 @@
  * Created: 26/04/2017 18:45:56
  * Author : Cliente
  */ 
-
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdbool.h>
 #include <string.h>
 #include <util/delay.h>
 #include "nrf24l01.h"
-#define F_CPU 16000000UL
 
 nRF24L01 *setup_rf(void);
 void process_message (char *message);

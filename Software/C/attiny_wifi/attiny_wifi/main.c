@@ -38,6 +38,8 @@ int main(void)
 				process_message((char *) msg.data);
 			}
 			nRF24L01_listen(rf, 0, address);
+			//uint8_t valor;
+			//valor = nRF24L01_data_received(rf);
 		}
     }
 }

@@ -40,15 +40,19 @@ void loop()
 {
   //Verifica se ha sinal de radio
   int teste;//APAGAR
+
+  int tam = sizeof(recebidos);
+  Serial.println(tam);
+  
   teste = radio.available();
   Serial.print("teste: ");
   Serial.println(teste);
-  //teste = 1;//APAGAR
+  teste = 1;//APAGAR
   if (teste) {//radio.available()
-    bool done = false;    
+    bool done = 0;    
     while (!done)
     {
-      done = radio.read(recebidos, 1);
+      done = radio.read(&recebidos, 1); //radio.read(&msg, sizeof(int));
       Serial.print("Dados recebidos : ");    
       Serial.println(recebidos[0]);
       

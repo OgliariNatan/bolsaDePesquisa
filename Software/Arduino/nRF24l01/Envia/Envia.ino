@@ -7,7 +7,8 @@
 #include "RF24.h"
 
 //Armazena os dados enviados
-int dados[1];
+#define tam 1
+int dados[tam];
 
 //Inicializa a placa nos pinos 9 (CE) e 10 (CS) do Arduino
 RF24 radio(9,10);
@@ -41,12 +42,14 @@ void setup()
 void loop()
 {
   dados[0] = 0;
+  
+  
   //Envia o numero 1 caso o botao1 seja pressionado
   if (digitalRead(pino_botao1) == LOW)
   {
     Serial.println("Botao 1 pressionado !");
     dados[0] = 1;
-    radio.write(dados, 1);
+    radio.write(dados, tam);
   }
   
   //Envia o numero 2 caso o botao2 seja pressionado
@@ -54,7 +57,7 @@ void loop()
   {
     Serial.println("Botao 2 pressionado !");
     dados[0] = 2;
-    radio.write(dados, 1);
+    radio.write(dados, tam);
   }
   delay(500);
   Serial.println("----------------------");

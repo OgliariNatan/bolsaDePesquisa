@@ -10,7 +10,7 @@ const uint16_t base = 00; // Endereço base em octal (Deixar 00 para ser base)
 struct message_t {
   int id;
   float temperature;
-  float humidity;
+  float luminosidade;
 };
 
 void setup(void){
@@ -34,6 +34,6 @@ void loop(void) {
     Serial.print("\t");
     Serial.print(message.temperature);
     Serial.print("\t");
-    Serial.println(message.humidity);
+    Serial.println(message.luminosidade);
   }
 }

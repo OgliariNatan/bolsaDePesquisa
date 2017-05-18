@@ -1,5 +1,4 @@
 // Programa : NRF24L01 Receptor - Servo motor
-// Autor : Arduino e Cia
 
 #include <SPI.h>
 #include <nRF24L01.h>

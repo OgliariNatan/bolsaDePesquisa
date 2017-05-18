@@ -1,11 +1,10 @@
 // Programa : NRF24L01 Emissor - Servo motor
-// Autor : Arduino e Cia
 
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
 
-#define DEBUG //!<Ativa a depuração
+//#define DEBUG //!<Ativa a depuração
 
 // Armazena caractere digitado na serial
 char valor[1];

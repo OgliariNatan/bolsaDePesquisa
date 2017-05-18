@@ -6,6 +6,8 @@
 #include <RF24.h>
 #include <Servo.h> 
 
+//#define DEBUG //!<Ativa a depuração
+
 // Armazena os dados recebidos
 int recebidos[1];
 
@@ -39,17 +41,30 @@ void setup()
 
 void loop()
 {
+  recebidos[0] = 0;
   //Serial.println("Esta no loop");
   // Verifica sinal de radio
   if (!radio.available())
   {
-    Serial.println("Esta no radio");
+
+    #ifdef DEBUG
+      Serial.println("Esta no radio");
+    #endif /// DEBUG
+      
     int done = 0;// COLOCAR ZERO    
     while (!done)   {
       //done = radio.read(recebidos, 1);
       radio.read(recebidos, 1);
-      Serial.print("Recebido : ");    
-      Serial.println(recebidos[0]);
+      
+      
+      #ifdef DEBUG
+        Serial.println("-----------------------");
+        Serial.print("Recebido[0]: ");    
+        Serial.println(recebidos[0]);
+        Serial.print("Recebido[1]: ");    
+        Serial.println(recebidos[1]);
+        Serial.println("-----------------------");
+      #endif /// DEBUG
       
       // Se recebeu 1, movimenta o servo para a esquerda
       if (recebidos[0] == 1)    {
@@ -71,16 +86,13 @@ void loop()
         Serial.println(" -> Acende led");
         digitalWrite(LED1, HIGH);
       }
-      //else
-      //{
-       // digitalWrite(LED1, LOW);
-      //}
-      //delay(500);
+      if (recebidos[0] == 4) {
+        delay(10);
+        Serial.println(" -> Apaga led");
+        digitalWrite(LED1, LOW);
+      }
+      delay(500);
     }
   }
-  Serial.println("-----------------------");
-  Serial.println(recebidos[0]);
-  Serial.println(recebidos[1]);
-  Serial.println("-----------------------");
-  delay(1000);
+  
 }

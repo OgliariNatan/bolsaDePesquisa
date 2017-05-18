@@ -18,7 +18,7 @@ Servo myservo;
 const uint64_t pipe = 0xE13CBAF433LL;
 
 // Define o pino do led
-int LED1 = 13;
+int LED1 = 3;
 
 void setup()
 {
@@ -45,41 +45,37 @@ void loop()
   {
     Serial.println("Esta no radio");
     int done = 0;// COLOCAR ZERO    
-    while (!done)
-    {
+    while (!done)   {
       //done = radio.read(recebidos, 1);
       radio.read(recebidos, 1);
       Serial.print("Recebido : ");    
       Serial.println(recebidos[0]);
       
       // Se recebeu 1, movimenta o servo para a esquerda
-      if (recebidos[0] == 1)
-      {
+      if (recebidos[0] == 1)    {
         delay(10);
         Serial.println(" -> Girando motor para a esquerda");
         myservo.write(1);
       }
       
       // Se recebeu 2, movimenta o servo para a direita
-      if (recebidos[0] == 2)
-      {
+      if (recebidos[0] == 2){
         delay(10);
         Serial.println(" -> Girando motor para a direita");
         myservo.write(160);
       }
 
       // Se recebeu 3, acende o led
-      if (recebidos[0] == 3)
-      {
+      if (recebidos[0] == 3) {
         delay(10);
         Serial.println(" -> Acende led");
         digitalWrite(LED1, HIGH);
       }
-      else
-      {
-        digitalWrite(LED1, LOW);
-      }
-      delay(100);
+      //else
+      //{
+       // digitalWrite(LED1, LOW);
+      //}
+      //delay(500);
     }
   }
   Serial.println("-----------------------");

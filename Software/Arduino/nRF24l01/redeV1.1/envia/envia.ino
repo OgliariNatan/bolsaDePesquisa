@@ -2,6 +2,8 @@
 #include <RF24.h>
 #include <SPI.h>
 
+#define DEBUG //!<Ativa a depuração
+
 RF24 radio(9, 10);
 RF24Network network(radio);
 
@@ -43,4 +45,15 @@ void loop() {
   }
   // Aguarda envio
   delay(interval);
+
+     #ifdef DEBUG
+       Serial.println("-----------------------");
+       Serial.print("ID: ");    
+       Serial.println(message.id);
+       Serial.print("Temparatura: ");    
+       Serial.println(message.temperature);
+       Serial.print("Luminosidade: ");    
+       Serial.println(message.luminosidade);
+       Serial.println("-----------------------");
+     #endif /// DEBUG
 }

@@ -3,8 +3,9 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
+#include <avr/wdt.h>
 
-//#define DEBUG //!<Ativa a depuração
+#define DEBUG //!<Ativa a depuração
 
 // Armazena caractere digitado na serial
 char valor[1];
@@ -28,6 +29,7 @@ void setup()
   radio.begin();
   // Entra em modo de transmissao
   radio.openWritingPipe(pipe);
+  wdt_enable(WDTO_4S); //Função que ativa e altera o Watchdog 2 4 8
 }
 
 void loop()
@@ -83,4 +85,5 @@ void loop()
         Serial.println("-----------------------");
         delay(500);
   #endif /// DEBUG
+  wdt_reset();//zera o wdt
 }

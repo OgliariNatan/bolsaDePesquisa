@@ -4,8 +4,9 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 #include <Servo.h> 
+#include <avr/wdt.h>
 
-//#define DEBUG //!<Ativa a depuração
+#define DEBUG //!<Ativa a depuração
 
 // Armazena os dados recebidos
 int recebidos[1];
@@ -36,6 +37,7 @@ void setup()
   radio.startListening();
   // Mensagem inicial
   Serial.println("Aguardando dados...");
+  wdt_enable(WDTO_2S); //Função que ativa e altera o Watchdog 2 4 8
 }
 
 void loop()
@@ -69,14 +71,14 @@ void loop()
       if (recebidos[0] == 1)    {
         delay(10);
         Serial.println(" -> Girando motor para a esquerda");
-        myservo.write(1);
+        myservo.write(0);//1
       }
       
       // Se recebeu 2, movimenta o servo para a direita
       if (recebidos[0] == 2){
         delay(10);
         Serial.println(" -> Girando motor para a direita");
-        myservo.write(160);
+        myservo.write(160);//160
       }
 
       // Se recebeu 3, acende o led
@@ -91,7 +93,8 @@ void loop()
         digitalWrite(LED1, LOW);
       }
       delay(500);
+      wdt_reset();//zera o wdt
     }
   }
-  
+  wdt_reset();//zera o wdt
 }

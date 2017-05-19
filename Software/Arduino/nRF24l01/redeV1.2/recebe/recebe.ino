@@ -2,7 +2,7 @@
 #include <RF24.h>
 #include <SPI.h>
 
-#define DEBUG //!<Ativa a depuração
+//#define DEBUG //!<Ativa a depuração
 
 RF24 radio(9, 10);
 RF24Network network(radio); // Define o rádio para Network
@@ -13,12 +13,13 @@ struct message_t {
   int id;
   float temperature;
   float luminosidade;
-};
+  int hora;
+  int minuto;
+  int data; //no formato xxxxxx -> sendo ddmmaa
+}; message_t message;
 
 void setup(void){
   Serial.begin(57600);
-  
-  //nRF
   SPI.begin();
   radio.begin();
   radio.setPALevel(RF24_PA_MAX); //Recomendo para módulo PA+LNA
@@ -30,7 +31,7 @@ void loop(void) {
   network.update(); // Verifica a rede regularmente
   while ( network.available() ) { // Tem novos dados na rede?
     RF24NetworkHeader header; // Se tem, pega e mostra os dados na serial.
-    message_t message;
+    
     network.read(header, &message, sizeof(message));
     Serial.print("ID: ");
     Serial.println(message.id);

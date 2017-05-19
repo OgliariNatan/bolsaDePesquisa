@@ -1,6 +1,7 @@
 #include <RF24Network.h>
 #include <RF24.h>
 #include <SPI.h>
+#include <avr/wdt.h>
 
 #define DEBUG //!<Ativa a depuração
 
@@ -17,16 +18,16 @@ struct message_t {
 
 void setup(void){
   Serial.begin(57600);
-  
-  //nRF
   SPI.begin();
   radio.begin();
   radio.setPALevel(RF24_PA_MAX); //Recomendo para módulo PA+LNA
   //radio.setDataRate(RF24_250KBPS); //Recomendável para longas distâncias
   //RF24Network
   network.begin(/*Canal*/ 90, /*Endereço*/ base);
+  wdt_enable(WDTO_2S); //Função que ativa e altera o Watchdog
 }
 void loop(void) {
+  wdt_reset();//zera o wdt
   network.update(); // Verifica a rede regularmente
   while ( network.available() ) { // Tem novos dados na rede?
     RF24NetworkHeader header; // Se tem, pega e mostra os dados na serial.

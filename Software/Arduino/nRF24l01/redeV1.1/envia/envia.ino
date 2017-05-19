@@ -1,6 +1,7 @@
 #include <RF24Network.h>
 #include <RF24.h>
 #include <SPI.h>
+#include <avr/wdt.h>
 
 #define DEBUG //!<Ativa a depuração
 
@@ -16,9 +17,6 @@ struct message_t {
   int id;
   float temperature;
   float luminosidade;
-  int hora;
-  int minuto;
-  int data;//no formato xxxxxx -> sendo ddmmaa
 }; message_t message;
 
 RF24NetworkHeader header(base);
@@ -34,10 +32,12 @@ void setup(void)
   radio.setPALevel(RF24_PA_MAX); //Recomendo para módulo PA+LNA
   //radio.setDataRate(RF24_250KBPS); //Recomendável para longas distâncias
   network.begin(/*channel*/ 90, /*node address*/ hotspot);
+  wdt_enable(WDTO_8S); //Função que ativa e altera o Watchdog 2 4 8
 }
 
 
 void loop() {
+  wdt_reset();//zera o wdt
   network.update(); // Verifica a rede regularmente
   float l = ((analogRead (A0)*6.2364)-2785.6); //leitura da luminosidade  6,2364x - 2785,6
   float t = analogRead (A1); //leitura da temperatura
@@ -45,9 +45,11 @@ void loop() {
     hotspot, t, l
   }; // Ordem dos dados (ID, Temperatura, Umidade)
   header.type = 't';
+  
   if (network.write(header, &message, sizeof(message))) {
     Serial.print("Mensagem enviada\n");
-  } else {
+  } 
+  else {
     Serial.print("Não foi possível enviar\n");
   }
   // Aguarda envio

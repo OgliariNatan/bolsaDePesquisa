@@ -4,6 +4,7 @@
 #include <DS1307.h>
 
 #define DEBUG //!<Ativa a depuração
+
 //Modulo RTC DS1307 ligado as portas A4 e A5 do Arduino 
 DS1307 rtc(A4, A5);
 

@@ -9,7 +9,7 @@ const int LATCH_PIN = 0;           //storage register clock (slave select)
 const int DATA_PIN = 1;            //data in
 const int CLOCK_PIN = 2;           //shift register clock
  
-RF24 radio(7, 7);
+RF24 radio(3, 3);
 RF24Network network(radio);
 
 const uint16_t hotspot = 01; // Endereço desse spot em Octal ou ID

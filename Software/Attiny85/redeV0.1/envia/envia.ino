@@ -1,7 +1,7 @@
 #include <RF24Network.h>
 #include <RF24.h>
-#include "tinySPI.h"
-//#include <SPI.h>
+#include <tinySPI.h>
+
 
 #define HARDWARE_SPI 1 
 //pin definitions
@@ -29,7 +29,8 @@ void setup(void)
   Serial.begin(57600);
   Serial.print("RF24Network / Node: ");
   Serial.println(hotspot);
-  SPI.begin();
+  //SPI.begin();
+  
   pinMode(3, INPUT_PULLUP);
   pinMode(4, INPUT_PULLUP);
   #if HARDWARE_SPI == 1

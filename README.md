@@ -1,4 +1,4 @@
-<h1> bolsa De Pesquisa </h1>
+<h1> Sistema de controle da iluminação inteligente </h1>
 <p>
 Repositório criado para o controle de um sistema de iluminarias inteligentes de baixo consumo.<br/>
 Rescuso financiado atraves de bolsa de iniciação cientifica.

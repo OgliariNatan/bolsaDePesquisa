@@ -29,7 +29,6 @@ void setup(void)
   Serial.begin(57600);
   Serial.print("RF24Network / Node: ");
   Serial.println(hotspot);
-  //SPI.begin();
   
   pinMode(3, INPUT_PULLUP);
   pinMode(4, INPUT_PULLUP);

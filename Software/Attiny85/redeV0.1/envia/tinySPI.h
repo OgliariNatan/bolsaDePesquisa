@@ -46,6 +46,6 @@ class tinySPI
         void end(void);
 };
 
-extern tinySPI SPI;
+extern tinySPI;// SPI;
 
 #endif

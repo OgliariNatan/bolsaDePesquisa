@@ -1,6 +1,3 @@
-#Sistema de controle da iluminação inteligente
-##Softwares utilizados
-
 <h1> Sistema de controle da iluminação inteligente </h1>
 <p>
 Repositório criado para o controle de um sistema de iluminarias inteligentes de baixo consumo.<br/>
@@ -12,4 +9,8 @@ Rescuso financiado atraves de bolsa de iniciação cientifica.
 Altium <br/>
 Arduino <br/>
 Atmel Studio <br/>
+</p>
+<h3> Colaboradores: </h3>
+<p>
+Fabricio vahl
 </p>

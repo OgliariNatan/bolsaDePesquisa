@@ -9,7 +9,7 @@ const int LATCH_PIN = 0;           //storage register clock (slave select)
 const int DATA_PIN = 1;            //data in
 const int CLOCK_PIN = 2;           //shift register clock
 
-tinySPI SPI = new tinySPI();
+tinySPI SPI = tinySPI();
  
 RF24 radio(3, 3);
 RF24Network network(radio);

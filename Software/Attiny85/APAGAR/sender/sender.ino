@@ -1,6 +1,6 @@
 #define CE_PIN 3
-#define CSN_PIN 3 //Since we are using 3 pin configuration we will use same pin for both CE and CSN
-
+#define CSN_PIN 4 //Since we are using 3 pin configuration we will use same pin for both CE and CSN
+// CE_PIN 3 and CSN_PIN 4
 #include "RF24.h"
 
 RF24 radio(CE_PIN, CSN_PIN);

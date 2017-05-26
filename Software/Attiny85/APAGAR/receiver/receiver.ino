@@ -19,12 +19,14 @@ void setup() {
 }
 
 void loop(void){
+  Serial.println("LOOP");
   radio.stopListening();
   radio.startListening();
-  radio.read( &payload, sizeof(unsigned long) );
+  radio.read( &payload, sizeof(unsigned long));
   if(payload != 0){
     Serial.print("Got Payload ");
     Serial.println(payload);
   }
+  Serial.println(payload);
   delay(1000);
 }

@@ -17,7 +17,7 @@ const uint16_t base = 00; // Endereço da base em Octal
 const unsigned long interval = 600; //ms // Frequência de envio dos dados
 
 // Estrutura da mensagem 
-struct message_t {
+struct __attribute__ ((__packed__)) message_t {
   int id;
   float temperature;
   float luminosidade;

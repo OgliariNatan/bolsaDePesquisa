@@ -44,8 +44,8 @@ class tinySPI
         void setDataMode(uint8_t spiDataMode);
         uint8_t transfer(uint8_t spiData);
         void end(void);
-};
+};// SPI;
 
-extern tinySPI;// SPI;
+extern tinySPI SPI;
 
 #endif

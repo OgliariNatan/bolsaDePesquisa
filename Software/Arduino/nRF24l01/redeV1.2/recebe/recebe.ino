@@ -13,7 +13,7 @@ RF24Network network(radio); // Define o rádio para Network
 const uint16_t base = 00; // Endereço base em octal (Deixar 00 para ser base)
 
 // Estrutura dos dados
-struct message_t {
+struct __attribute__ ((__packed__)) message_t {
   int id;
   float temperature;
   float luminosidade;

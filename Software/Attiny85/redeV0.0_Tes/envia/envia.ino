@@ -20,7 +20,7 @@ struct  __attribute__ ((__packed__)) message_t {                  // Structure o
   int id;
   float temperature;
   float luminosidade;
-};
+}; message_t message;
 
 void setup(void)
 {
@@ -35,7 +35,7 @@ void loop() {
   if ( now - last_sent >= interval  )
   {
     last_sent = now;
-    message_t message = { millis(), packets_sent++ };
+    message = { millis(), packets_sent++ };
     RF24NetworkHeader header(/*to node*/ other_node);
     bool ok = network.write(header,&message,sizeof(message));
   }

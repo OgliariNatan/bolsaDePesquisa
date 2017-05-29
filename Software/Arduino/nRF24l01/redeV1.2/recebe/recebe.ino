@@ -49,10 +49,10 @@ void loop(void) {
     Serial.print("Luminosidade: ");
     Serial.println(message.luminosidade);
 
-    Serial.print("Hora: ");    
-    Serial.println(hora);
-    Serial.print("Data: ");    
-    Serial.println(data);
+    //Serial.print("Hora: ");    
+    //Serial.println(hora);
+    //Serial.print("Data: ");    
+    //Serial.println(data);
   }
 }
 

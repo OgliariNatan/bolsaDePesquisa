@@ -7,10 +7,10 @@ RF24 radio(5,5);                    // COLOCAR OS VALORES IGUAIS QUANDO UTILIZAR
    
 RF24Network network(radio);          // Network uses that radio
 
-const uint16_t this_node = 00;        // Address of our node in Octal format
+const uint16_t base = 00;        // Address of our node in Octal format
 const uint16_t other_node = 00;       // Address of the other node in Octal format
 
-const unsigned long interval = 2000; //ms  // How often to send 'hello world to the other unit
+const unsigned long interval = 600; //ms  // How often to send 'hello world to the other unit
 
 unsigned long last_sent;             // When did we last send?
 unsigned long packets_sent;          // How many have we sent already
@@ -25,19 +25,23 @@ struct  __attribute__ ((__packed__)) message_t {                  // Structure o
 void setup(void)
 {
   radio.begin();
-  network.begin(/*channel*/ 90, /*node address*/ this_node);
+  network.begin(/*channel*/ 90, /*node address*/ base);
 }
 
 void loop() {
-  
   network.update();                          // Check the network regularly
+  message.temperature=1;//APAGAR
+  message.luminosidade=2;//APAGAR
   unsigned long now = millis();              // If it's time to send a message, send it!
-  if ( now - last_sent >= interval  )
-  {
+  //if ( now - last_sent >= interval  )
+  //{
     last_sent = now;
-    message = { millis(), packets_sent++ };
+    message = (message_t) {
+    message.id, message.temperature, message.luminosidade
+  }; // Ordem dos dados (ID, Temperatura, Umidade)
     RF24NetworkHeader header(/*to node*/ other_node);
     bool ok = network.write(header,&message,sizeof(message));
-  }
+ // }
+ delay(interval);
 }
 

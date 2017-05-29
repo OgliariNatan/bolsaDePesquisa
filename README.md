@@ -1,7 +1,7 @@
 <h1> Sistema de controle da iluminação inteligente </h1>
 <p>
 Repositório criado para o controle de um sistema de iluminarias inteligentes de baixo consumo.<br/>
-Rescuso financiado através de bolsa de iniciação cientifica.
+Rescuso financiado através de bolsa de iniciação científica.
 </p>
 
 <h2> Softwares utilizados </h2>

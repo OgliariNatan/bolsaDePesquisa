@@ -8,5 +8,5 @@ Esquematicos e leiaute, podem ser encontrados neste <a href="https://github.com/
 
 <h3> Referências e ajudas: </h3>
 <a href="https://www.hackster.io/arjun/nrf24l01-with-attiny85-3-pins-74a1f2">Fundamentado neste projeto.</a>
-<!-- com ajuda do <a href="https://www.facebook.com/werlesonnery?fref=ufi">Werleson Nery.</a> <br/> -->
+ com ajuda do <a href="https://www.facebook.com/werlesonnery?fref=ufi">Werleson Nery.</a> <br/>
 

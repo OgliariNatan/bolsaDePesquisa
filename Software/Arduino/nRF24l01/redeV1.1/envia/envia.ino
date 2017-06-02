@@ -13,7 +13,7 @@ const uint16_t base = 00; // Endereço da base em Octal
 const unsigned long interval = 600; //ms // Frequência de envio dos dados
 
 // Estrutura da mensagem
-struct message_t {
+struct __attribute__ ((__packed__)) message_t {
   int id;
   float temperature;
   float luminosidade;
@@ -41,6 +41,7 @@ void loop() {
   network.update(); // Verifica a rede regularmente
   float l = ((analogRead (A0)*6.2364)-2785.6); //leitura da luminosidade  6,2364x - 2785,6
   float t = analogRead (A1); //leitura da temperatura
+ 
   message = (message_t) {
     hotspot, t, l
   }; // Ordem dos dados (ID, Temperatura, Umidade)

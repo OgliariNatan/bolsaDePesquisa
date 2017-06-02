@@ -40,7 +40,7 @@ void setup(void)
   radio.setPALevel(RF24_PA_MAX); //Recomendo para módulo PA+LNA
   //radio.setDataRate(RF24_250KBPS); //Recomendável para longas distâncias
   network.begin(/*channel*/ 90, /*node address*/ hotspot);
-  relogio ();
+  //relogio ();
 }
 
 

@@ -24,6 +24,8 @@ void setup(void){
   //radio.setDataRate(RF24_250KBPS); //Recomendável para longas distâncias
   //RF24Network
   network.begin(/*Canal*/ 90, /*Endereço*/ base);
+  Serial.print("Canal: 90  Base: ");
+  Serial.println(base);
   wdt_enable(WDTO_2S); //Função que ativa e altera o Watchdog
 }
 void loop(void) {

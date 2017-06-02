@@ -32,8 +32,8 @@ void setup(void)
 void loop() {
   network.update();// Check the network regularly
   message.id = 01;
-  message.temperature= 1 ;//APAGAR
-  message.luminosidade= 2;//APAGAR
+  message.temperature= analogRead(A3) ;//APAGAR
+  message.luminosidade= analogRead(A2);//APAGAR
     
   message = (message_t) {
      message.id, message.temperature, message.luminosidade

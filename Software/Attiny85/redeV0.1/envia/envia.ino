@@ -20,13 +20,10 @@ struct  __attribute__ ((__packed__)) message_t {                  // Structure o
 
 RF24NetworkHeader header(base);
 
-void setup(void)
-{
+void setup(void){
   radio.begin();
   radio.setPALevel(RF24_PA_MAX);
   network.begin(/*channel*/ 90, /*node address*/ base);
-  pinMode(A2, INPUT);
-  pinMode(A3, INPUT);
 }
 
 void loop() {

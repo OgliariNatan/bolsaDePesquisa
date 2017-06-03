@@ -4,7 +4,7 @@ Módulo responsável pela coleta de Temperatura e Luminosidade. <br />
 </p>
 
 <h2> Hardware </h2>
-Esquematicos e leiaute, podem ser encontrados neste <a href="https://github.com/OgliariNatan/bolsaDePesquisa/tree/master/Hardware">Link.</a> <br />
+Esquematicos e leiaute, podem ser encontrados neste <a href="https://github.com/OgliariNatan/bolsaDePesquisa/tree/master/Hardware">Link.</a> Arquivos do software Altium.<br />
 
 <h3> Attiny85 </h3>
 <p>

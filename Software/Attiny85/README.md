@@ -10,7 +10,7 @@ Esquematicos e leiaute, podem ser encontrados neste <a href="https://github.com/
 <p>
 <a href="http://www.atmel.com/images/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf">Datasheet.</a> <br />
 Diagrama dos I/O <br />
-<img src="https://github.com/OgliariNatan/bolsaDePesquisa/blob/master/Software/Attiny85/687474703a2f2f6472617a7a792e636f6d2f652f696d672f50696e6f75745438352e706e67.png"/>
+<img src="Attiny85/687474703a2f2f6472617a7a792e636f6d2f652f696d672f50696e6f75745438352e706e67.png"/>
 </p>
 
 <h4> Referências e ajudas: </h4>

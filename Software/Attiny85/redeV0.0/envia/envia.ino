@@ -25,8 +25,6 @@ void setup(void)
   radio.begin();
   radio.setPALevel(RF24_PA_MAX);
   network.begin(/*channel*/ 90, /*node address*/ base);
-  pinMode(A2, INPUT);
-  pinMode(A3, INPUT);
 }
 
 void loop() {
@@ -36,7 +34,7 @@ void loop() {
   message.luminosidade= 2;//APAGAR
     
   message = (message_t) {
-     message.id, message.temperature, message.luminosidade
+     1, 2, 3
     }; // Ordem dos dados (ID, Temperatura, Umidade)
   header.type = 't';
   

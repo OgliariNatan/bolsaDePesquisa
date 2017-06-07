@@ -29,6 +29,7 @@ void loop(void){
    
   while (network.available()) { //network.available()  // Is there anything ready for us?
     RF24NetworkHeader header;        // If so, grab it and print it out
+   
     payload_t payload;
     network.read(header, &payload, sizeof(payload));
     Serial.print("Received packet: ");

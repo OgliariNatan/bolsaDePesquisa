@@ -10,7 +10,7 @@ RF24Network network(radio);          // Network uses that radio
 const uint16_t hotspot = 01; // Endereço desse spot em Octal ou ID 01
 const uint16_t base = 00; // Endereço da base em Octal
 const unsigned long interval = 600; //ms // Frequência de envio dos dados
-int teste=0;
+
 
 struct __attribute__ ((__packed__)) payload_t {                  // Structure of our payload
   unsigned long ms;
@@ -28,12 +28,13 @@ void setup(void)
 
 void loop() {
     network.update();                          // Check the network regularly
+    
     payload = (payload_t) { 54, 98 };
     header.type = 't';
     
-     if (network.write(header, &payload, sizeof(payload))) {
+   network.write(header, &payload, sizeof(payload));
       
-     }    
+        
   delay(interval);
 }
 

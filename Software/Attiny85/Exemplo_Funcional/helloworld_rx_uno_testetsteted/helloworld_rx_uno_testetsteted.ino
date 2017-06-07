@@ -13,8 +13,8 @@ struct  __attribute__ ((__packed__)) payload_t { // Structure of our payload
   unsigned long counter;
 };
 
-
 void setup(void)
+
 {
   Serial.begin(57600);
   SPI.begin();
@@ -31,7 +31,7 @@ void loop(void){
     RF24NetworkHeader header;        // If so, grab it and print it out
     payload_t payload;
     network.read(header, &payload, sizeof(payload));
-    Serial.print("Received packet #");
+    Serial.print("Received packet: ");
     Serial.println(payload.counter);
     Serial.print(" at ");
     Serial.println(payload.ms);

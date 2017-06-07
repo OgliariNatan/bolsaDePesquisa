@@ -24,7 +24,6 @@ void setup(void)
   radio.begin();
   radio.setPALevel(RF24_PA_MAX);
   network.begin(/*channel*/ 90, /*node address*/ hotspot);
-  pinMode(A2, OUTPUT);
 }
 
 void loop() {
@@ -34,10 +33,7 @@ void loop() {
     
      if (network.write(header, &payload, sizeof(payload))) {
       
-     }
-     teste = !teste;
-    digitalWrite(A2, teste); 
-    
+     }    
   delay(interval);
 }
 

@@ -14,8 +14,8 @@ int teste=0;
 
 struct  __attribute__ ((__packed__)) message_t {                  // Structure of our payload
   int id;
-  float temperature;
-  float luminosidade;
+  int temperature;
+  int luminosidade;
 }; message_t message;
 
 RF24NetworkHeader header(base);
@@ -30,12 +30,12 @@ void loop() {
   network.update();// Check the network regularly
   message.id = 01;
   int x;
-  //for (x=0; x<50; x++){
+  for (x=0; x<5; x++){
     message.temperature= analogRead(3) ;//APAGAR A3
     message.luminosidade= analogRead(4);//APAGAR A2
-  //}
+  }
   message = (message_t) {
-     message.id, message.temperature, message.luminosidade
+     message.id, message.temperature/5, message.luminosidade/5
     }; // Ordem dos dados (ID, Temperatura, Umidade)
   header.type = 't';
   

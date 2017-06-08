@@ -29,9 +29,11 @@ void setup(void){
 void loop() {
   network.update();// Check the network regularly
   message.id = 01;
-  message.temperature= analogRead(A3) ;//APAGAR
-  message.luminosidade= analogRead(A2);//APAGAR
-    
+  int x;
+  //for (x=0; x<50; x++){
+    message.temperature= analogRead(3) ;//APAGAR A3
+    message.luminosidade= analogRead(4);//APAGAR A2
+  //}
   message = (message_t) {
      message.id, message.temperature, message.luminosidade
     }; // Ordem dos dados (ID, Temperatura, Umidade)

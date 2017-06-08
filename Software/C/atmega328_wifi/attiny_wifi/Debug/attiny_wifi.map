@@ -517,12 +517,12 @@ END GROUP
  .debug_frame   0x00000000       0x80 main.o
  .debug_frame   0x00000080      0x26c nrf24l01.o
 
-.debug_str      0x00000000      0x652
+.debug_str      0x00000000      0x6b5
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x263 main.o
-                                0x2b8 (size before relaxing)
- .debug_str     0x0000046b      0x1e7 nrf24l01.o
+ .debug_str     0x00000208      0x266 main.o
+                                0x2bb (size before relaxing)
+ .debug_str     0x0000046e      0x247 nrf24l01.o
                                 0x461 (size before relaxing)
 
 .debug_loc      0x00000000      0xdf5

@@ -4,7 +4,7 @@
  * Created: 26/04/2017 18:45:56
  * Author : Cliente
  */ 
-#define F_CPU 16000000UL
+#define F_CPU 8000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdbool.h>

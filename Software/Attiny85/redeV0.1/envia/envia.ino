@@ -30,12 +30,12 @@ void loop() {
   network.update();// Check the network regularly
   message.id = 01;
   int x;
-  for (x=0; x<5; x++){
+  for (x=0; x<15; x++){
     message.temperature= analogRead(3) ;//APAGAR A3
     message.luminosidade= analogRead(4);//APAGAR A2
   }
   message = (message_t) {
-     message.id, message.temperature/5, message.luminosidade/5
+     message.id, message.temperature/15, message.luminosidade/15
     }; // Ordem dos dados (ID, Temperatura, Umidade)
   header.type = 't';
   

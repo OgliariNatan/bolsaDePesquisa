@@ -4,6 +4,8 @@ Repositório criado para o controle de um sistema de iluminarias inteligentes de
 Rescuso financiado através de bolsa de iniciação científica.
 </p>
 
+<img src="https://github.com/OgliariNatan/bolsaDePesquisa/blob/master/Software/Diagramas/sensores.png"/>
+
 <h2> Softwares utilizados </h2>
 <p> 
 Altium <br/>

@@ -1,0 +1,4 @@
+Change Component DesignItemId : Designator=D1 Old DesignItemId=1N4007 New DesignItemId=RS1A
+Change Component Footprint: Designator=D1 Old Footprint=DIODE_SMC New Footprint=DO-214AC
+Added Pin To Net: NetName=VIN Pin=D1-A
+Added Pin To Net: NetName=NetC1_2 Pin=D1-K

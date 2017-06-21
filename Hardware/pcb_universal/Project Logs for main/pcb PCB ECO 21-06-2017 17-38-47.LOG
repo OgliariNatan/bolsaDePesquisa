@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=NetQ1_2 Pin=Q1-1
+Removed Pin From Net: NetName=NetP2_1 Pin=Q1-2
+Removed Pin From Net: NetName=NetQ2_2 Pin=Q2-1
+Removed Pin From Net: NetName=NetP4_1 Pin=Q2-2
+Change Component DesignItemId : Designator=Q1 Old DesignItemId=MOSFET-P New DesignItemId=MOSFET-N
+Change Component DesignItemId : Designator=Q2 Old DesignItemId=MOSFET-P New DesignItemId=MOSFET-N
+Change Component Comment : Designator=Q1 Old Comment=MOSFET-P New Comment=MOSFET-N
+Change Component Comment : Designator=Q2 Old Comment=MOSFET-P New Comment=MOSFET-N
+Change Component Description : Designator=Q1 Old Description=P-Channel MOSFET New Description=N-Channel MOSFET
+Change Component Description : Designator=Q2 Old Description=P-Channel MOSFET New Description=N-Channel MOSFET
+Added Component: Designator=HS3(HS-TO-220-180847)
+Added Component: Designator=P10(HDR-M-1x2-2.54mm-180-9.2mm)
+Added Component: Designator=Q3(TO-220/123)
+Added Component: Designator=R10(0805R)
+Added Pin To Net: NetName=VIN Pin=P10-2
+Added Pin To Net: NetName=NetP2_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_2 Pin=Q1-2
+Added Pin To Net: NetName=NetP4_1 Pin=Q2-1
+Added Pin To Net: NetName=NetQ2_2 Pin=Q2-2
+Added Pin To Net: NetName=GND Pin=Q3-3
+Added Pin To Net: NetName=NetP10_1 Pin=P10-1
+Added Pin To Net: NetName=NetP10_1 Pin=Q3-1
+Added Net: Name=NetP10_1
+Added Pin To Net: NetName=NetQ3_2 Pin=Q3-2
+Added Pin To Net: NetName=NetQ3_2 Pin=R10-2
+Added Net: Name=NetQ3_2
+Added Pin To Net: NetName=NetR10_1 Pin=R10-1
+Added Pin To Net: NetName=NetR10_1 Pin=U1-11
+Added Net: Name=NetR10_1
+Added Member To Class: ClassName=schematic Member=Component HS3 HS-TO-220
+Added Member To Class: ClassName=schematic Member=Component P10 PWM_1
+Added Member To Class: ClassName=schematic Member=Component Q3 MOSFET-N
+Added Member To Class: ClassName=schematic Member=Component R10 2k2R

@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=NetU1_15 Pin=U1-15
+Removed Pin From Net: NetName=NetU1_16 Pin=U1-16
+Removed Pin From Net: NetName=NetU1_16 Pin=U2-MISO
+Removed Pin From Net: NetName=NetU1_15 Pin=U2-MOSI
+Added Component: Designator=P8(KK-M-1x2-2.54mm-180)
+Added Component: Designator=P9(HDR-F-2x3-1.27mm-SMD-4.57mm)
+Added Pin To Net: NetName=VIN Pin=P8-1
+Added Pin To Net: NetName=GND Pin=P8-2
+Added Pin To Net: NetName=NetU1_15 Pin=P9-1
+Added Pin To Net: NetName=3V3 Pin=P9-2
+Added Pin To Net: NetName=NetU1_17 Pin=P9-3
+Added Pin To Net: NetName=NetU1_16 Pin=P9-4
+Added Pin To Net: NetName=NetP5_1 Pin=P9-5
+Added Pin To Net: NetName=GND Pin=P9-6
+Added Pin To Net: NetName=NetU1_16 Pin=U1-15
+Added Pin To Net: NetName=NetU1_15 Pin=U1-16
+Added Pin To Net: NetName=NetU1_15 Pin=U2-MISO
+Added Pin To Net: NetName=NetU1_16 Pin=U2-MOSI
+Change Net Name : Old Net Name=NetU1_15 New Net Name=NetP9_1
+Change Net Name : Old Net Name=NetU1_16 New Net Name=NetP9_4
+Change Net Name : Old Net Name=NetU1_17 New Net Name=NetP9_3
+Added Member To Class: ClassName=schematic Member=Component P8 SOUREC
+Added Member To Class: ClassName=schematic Member=Component P9 ICSP

@@ -1,0 +1,6 @@
+Change Component Comment : Designator=R6 Old Comment=2k New Comment=2k2R
+Change Component Comment : Designator=R7 Old Comment=2k New Comment=2k2R
+Added Component: Designator=HS1(HS-TO-220-180847)
+Added Component: Designator=HS2(HS-TO-220-180847)
+Added Member To Class: ClassName=schematic Member=Component HS1 HS-TO-220
+Added Member To Class: ClassName=schematic Member=Component HS2 HS-TO-220

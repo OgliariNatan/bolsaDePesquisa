@@ -1,0 +1,4 @@
+Added Component: Designator=R15(0805R)
+Added Pin To Net: NetName=NetQ3_2 Pin=R15-1
+Added Pin To Net: NetName=VIN Pin=R15-2
+Added Member To Class: ClassName=schematic Member=Component R15 Value

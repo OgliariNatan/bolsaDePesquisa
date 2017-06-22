@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=3V3 Pin=R13-1
+Removed Member From Class: ClassName=schematic Member=R13
+Added Pin To Net: NetName=3V3 Pin=U1-20

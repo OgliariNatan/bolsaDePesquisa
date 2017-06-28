@@ -19,4 +19,4 @@ Atmel Studio <br/>
 <a href="https://github.com/fabriciovahl">Fabricio vahl</a>. <br/>     
 </p>
 
-<h4> Outros < /h4>
+<h4> Outros </h4>

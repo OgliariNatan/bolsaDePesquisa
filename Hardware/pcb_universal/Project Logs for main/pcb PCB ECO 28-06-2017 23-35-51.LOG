@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=C3 Old Footprint=CP-RAD-5.0mm-7.0mm-2.0mm New Footprint=CP-RAD-12.5mm-25.0mm-5.0mm
+Change Component Footprint: Designator=C6 Old Footprint=CP-RAD-5.0mm-7.0mm-2.0mm New Footprint=CP-RAD-12.5mm-40.0mm-5.0mm
+Change Component Comment : Designator=R4 Old Comment=330R New Comment=0R
+Change Component Comment : Designator=R3 Old Comment=620R New Comment=0R

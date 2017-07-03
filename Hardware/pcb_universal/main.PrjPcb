@@ -89,56 +89,85 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document4]
+DocumentPath=Gerber\furos.Cam
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [GeneratedDocument1]
-DocumentPath=Project Outputs for main\PCB.EXTREP
+DocumentPath=Project Outputs for main\PCB.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for main\PCB.GBL
+DocumentPath=Project Outputs for main\PCB.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for main\PCB.GBO
+DocumentPath=Project Outputs for main\PCB.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for main\PCB.GBP
+DocumentPath=Project Outputs for main\PCB.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for main\PCB.GBS
+DocumentPath=Project Outputs for main\PCB.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for main\PCB.GD1
+DocumentPath=Project Outputs for main\PCB.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for main\PCB.GG1
+DocumentPath=Project Outputs for main\PCB.GD1
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for main\PCB.GTL
+DocumentPath=Project Outputs for main\PCB.GG1
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for main\PCB.GTO
+DocumentPath=Project Outputs for main\PCB.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for main\PCB.GTP
+DocumentPath=Project Outputs for main\PCB.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for main\PCB.GTS
+DocumentPath=Project Outputs for main\PCB.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for main\PCB.REP
+DocumentPath=Project Outputs for main\PCB.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument13]
+DocumentPath=Project Outputs for main\PCB.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for main\PCB.REP
+DItemRevisionGUID=
+
+[GeneratedDocument15]
 DocumentPath=Project Outputs for main\PCB.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs for main\PCB.TXT
 DItemRevisionGUID=
 
 [Configuration1]
@@ -370,6 +399,8 @@ OutputName1=NC Drill Files
 OutputDocumentPath1=
 OutputVariantName1=
 OutputDefault1=0
+Configuration1_Name1=OutputConfigurationParameter1
+Configuration1_Item1=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|NumberOfDecimals=4|NumberOfUnits=4|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Metric|ZeroesMode=SuppressTrailingZeroes
 OutputType2=Mask
 OutputName2=Solder/Paste Mask Prints
 OutputDocumentPath2=

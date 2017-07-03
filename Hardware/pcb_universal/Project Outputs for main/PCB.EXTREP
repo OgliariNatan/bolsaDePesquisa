@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------
-Gerber File Extension Report For: PCB.GBR   29/06/2017  14:58:24
+Gerber File Extension Report For: PCB.GBR   03/07/2017  14:01:51
 ------------------------------------------------------------------------------------------
 
 
@@ -10,4 +10,7 @@ Layer Extension     Layer Description
 .GBL                Bottom Layer                            
 .GTS                Top Solder                              
 .GBS                Bottom Solder                           
+.GM1                Mechanical 1                            
+.GM13               Mechanical 13                           
+.GM15               Mechanical 15                           
 ------------------------------------------------------------------------------------------

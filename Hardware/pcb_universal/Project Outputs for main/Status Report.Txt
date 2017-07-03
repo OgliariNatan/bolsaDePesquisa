@@ -5,12 +5,15 @@ From  : Variant [[No Variations]] of Project [main.PrjPcb]
    Generated File[PCB.GBL]
    Generated File[PCB.GTS]
    Generated File[PCB.GBS]
+   Generated File[PCB.GM1]
+   Generated File[PCB.GM13]
+   Generated File[PCB.GM15]
    Generated File[PCB.RUL]
    Generated File[PCB.EXTREP]
    Generated File[PCB.REP]
 
 
-Files Generated   : 7
+Files Generated   : 10
 Documents Printed : 0
 
-Finished Output Generation At 14:58:25 On 29/06/2017
+Finished Output Generation At 14:01:51 On 03/07/2017

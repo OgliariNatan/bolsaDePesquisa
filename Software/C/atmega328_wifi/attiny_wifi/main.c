@@ -5,6 +5,9 @@
  * Author : Cliente
  */ 
 #define F_CPU 8000000UL
+
+#include "ATmega328.h"
+#include "globalDefines.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdbool.h>

@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  000002ec  00000000  00000000  0000370c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000006b5  00000000  00000000  000039f8  2**0
+ 10 .debug_str    00000655  00000000  00000000  000039f8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000df5  00000000  00000000  000040ad  2**0
+ 11 .debug_loc    00000df5  00000000  00000000  0000404d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000d0  00000000  00000000  00004ea2  2**0
+ 12 .debug_ranges 000000d0  00000000  00000000  00004e42  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -227,6 +227,12 @@ ISR(INT0_vect){
  192:	18 95       	reti
 
 00000194 <copy_address>:
+    uint8_t config;
+    nRF24L01_read_register(rf, CONFIG, &config, 1);
+    config |= _BV(PRIM_RX);
+    nRF24L01_write_register(rf, CONFIG, &config, 1);
+    return success;
+}
  194:	fc 01       	movw	r30, r24
  196:	a6 2f       	mov	r26, r22
  198:	b7 2f       	mov	r27, r23
@@ -712,15 +718,23 @@ ISR(INT0_vect){
  554:	08 95       	ret
 
 00000556 <nRF24L01_clear_receive_interrupt>:
+void nRF24L01_clear_transmit_interrupts(nRF24L01 *rf) {
+    uint8_t data = _BV(TX_DS) | _BV(MAX_RT);
+    nRF24L01_write_register(rf, STATUS, &data, 1);
+}
+
+void nRF24L01_clear_receive_interrupt(nRF24L01 *rf) {
  556:	cf 93       	push	r28
  558:	df 93       	push	r29
  55a:	1f 92       	push	r1
  55c:	cd b7       	in	r28, 0x3d	; 61
  55e:	de b7       	in	r29, 0x3e	; 62
  560:	fc 01       	movw	r30, r24
+    uint8_t data = _BV(RX_DR) | rf->status;
  562:	97 85       	ldd	r25, Z+15	; 0x0f
  564:	90 64       	ori	r25, 0x40	; 64
  566:	99 83       	std	Y+1, r25	; 0x01
+    nRF24L01_write_register(rf, STATUS, &data, 1);
  568:	21 e0       	ldi	r18, 0x01	; 1
  56a:	30 e0       	ldi	r19, 0x00	; 0
  56c:	ae 01       	movw	r20, r28
@@ -729,30 +743,45 @@ ISR(INT0_vect){
  572:	67 e0       	ldi	r22, 0x07	; 7
  574:	cf 01       	movw	r24, r30
  576:	0e 94 1b 01 	call	0x236	; 0x236 <nRF24L01_write_register>
+}
  57a:	0f 90       	pop	r0
  57c:	df 91       	pop	r29
  57e:	cf 91       	pop	r28
  580:	08 95       	ret
 
 00000582 <nRF24L01_read_received_data>:
+    nRF24L01_write_register(rf, EN_RXADDR, &current_pipes, 1);
+
+    set_high(rf->ce);
+}
+
+bool nRF24L01_read_received_data(nRF24L01 *rf, nRF24L01Message *message) {
  582:	0f 93       	push	r16
  584:	1f 93       	push	r17
  586:	cf 93       	push	r28
  588:	df 93       	push	r29
  58a:	8c 01       	movw	r16, r24
  58c:	eb 01       	movw	r28, r22
+    message->pipe_number = nRF24L01_pipe_number_received(rf);
  58e:	0e 94 85 01 	call	0x30a	; 0x30a <nRF24L01_pipe_number_received>
  592:	99 83       	std	Y+1, r25	; 0x01
  594:	88 83       	st	Y, r24
+    nRF24L01_clear_receive_interrupt(rf);
  596:	c8 01       	movw	r24, r16
  598:	0e 94 ab 02 	call	0x556	; 0x556 <nRF24L01_clear_receive_interrupt>
+    if (message->pipe_number < 0) {
  59c:	88 81       	ld	r24, Y
  59e:	99 81       	ldd	r25, Y+1	; 0x01
  5a0:	99 23       	and	r25, r25
  5a2:	1c f4       	brge	.+6      	; 0x5aa <nRF24L01_read_received_data+0x28>
+        message->length = 0;
  5a4:	1a a2       	std	Y+34, r1	; 0x22
+        return false;
  5a6:	80 e0       	ldi	r24, 0x00	; 0
  5a8:	17 c0       	rjmp	.+46     	; 0x5d8 <nRF24L01_read_received_data+0x56>
+    }
+
+    nRF24L01_read_register(rf, R_RX_PL_WID, &message->length, 1);
  5aa:	21 e0       	ldi	r18, 0x01	; 1
  5ac:	30 e0       	ldi	r19, 0x00	; 0
  5ae:	ae 01       	movw	r20, r28
@@ -761,9 +790,12 @@ ISR(INT0_vect){
  5b4:	60 e6       	ldi	r22, 0x60	; 96
  5b6:	c8 01       	movw	r24, r16
  5b8:	0e 94 1f 01 	call	0x23e	; 0x23e <nRF24L01_read_register>
+
+    if (message->length > 0) {
  5bc:	2a a1       	ldd	r18, Y+34	; 0x22
  5be:	22 23       	and	r18, r18
  5c0:	51 f0       	breq	.+20     	; 0x5d6 <nRF24L01_read_received_data+0x54>
+        nRF24L01_send_command(rf, R_RX_PAYLOAD, &message->data,
  5c2:	30 e0       	ldi	r19, 0x00	; 0
  5c4:	ae 01       	movw	r20, r28
  5c6:	4e 5f       	subi	r20, 0xFE	; 254
@@ -771,9 +803,14 @@ ISR(INT0_vect){
  5ca:	61 e6       	ldi	r22, 0x61	; 97
  5cc:	c8 01       	movw	r24, r16
  5ce:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <nRF24L01_send_command>
+            message->length);
+    }
+
+    return true;
  5d2:	81 e0       	ldi	r24, 0x01	; 1
  5d4:	01 c0       	rjmp	.+2      	; 0x5d8 <nRF24L01_read_received_data+0x56>
  5d6:	81 e0       	ldi	r24, 0x01	; 1
+}
  5d8:	df 91       	pop	r29
  5da:	cf 91       	pop	r28
  5dc:	1f 91       	pop	r17

@@ -1,0 +1,7 @@
+Change Component Comment : Designator=C1 Old Comment=Value New Comment=100nF
+Change Component Comment : Designator=C2 Old Comment=Value New Comment=100nF
+Change Component Comment : Designator=C5 Old Comment=Value New Comment=100nF
+Change Component Comment : Designator=R8 Old Comment=Value New Comment=220R
+Change Component Comment : Designator=R9 Old Comment=Value New Comment=360R
+Added Component: Designator=X1(IFSC_SILK)
+Added Member To Class: ClassName=schematic Member=Component X1 IFSC

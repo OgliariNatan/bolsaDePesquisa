@@ -1,0 +1,12 @@
+Added Component: Designator=R13(0805R)
+Added Component: Designator=R18(0805R)
+Added Component: Designator=R19(0805R)
+Added Pin To Net: NetName=GND Pin=R13-1
+Added Pin To Net: NetName=NetQ4_2 Pin=R13-2
+Added Pin To Net: NetName=GND Pin=R18-1
+Added Pin To Net: NetName=NetQ5_2 Pin=R18-2
+Added Pin To Net: NetName=GND Pin=R19-1
+Added Pin To Net: NetName=NetQ6_2 Pin=R19-2
+Added Member To Class: ClassName=schematic Member=Component R13 10k
+Added Member To Class: ClassName=schematic Member=Component R18 10k
+Added Member To Class: ClassName=schematic Member=Component R19 10k

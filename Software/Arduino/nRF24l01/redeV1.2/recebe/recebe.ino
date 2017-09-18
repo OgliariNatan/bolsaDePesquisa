@@ -27,7 +27,7 @@ void setup(void){
   Serial.begin(57600);
   SPI.begin();
   radio.begin();
-  radio.setPALevel(RF24_PA_MAX); //Recomendo para módulo PA+LNA
+  //radio.setPALevel(RF24_PA_MAX); //Recomendo para módulo PA+LNA
   //radio.setDataRate(RF24_250KBPS); //Recomendável para longas distâncias
   //RF24Network
   network.begin(/*Canal*/ 90, /*Endereço*/ base);
@@ -58,6 +58,7 @@ void loop(void) {
 
 //configura o relogio
 void relogio (void){
+  Serial.print("Relogio Atualizado");
   rtc.halt(0);
   rtc.setDOW(FRIDAY);
   rtc.setTime(20, 29, 53);

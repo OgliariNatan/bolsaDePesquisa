@@ -2,6 +2,7 @@
 #include <RF24.h>
 #include <SPI.h>
 #include <DS1307.h>
+#include <math.h>
 
 #define DEBUG //!<Ativa a depuração
 
@@ -84,9 +85,12 @@ void loop() {
 }
 //Atualiza a leitura dos pinos
 void updateIO (float* l, float* t){
+  
   *l = ((analogRead (A0)*6.2364)-2785.6); //leitura da luminosidade  6,2364x - 2785,6
-  *t = analogRead (A1); //leitura da temperatura
+  *t =  112900+23400*log10(analogRead(A1)/0.000185)+880000000*(log10(analogRead(A1)/0.000185))*(log10(analogRead(A1)/0.000185)); //leitura da temperatura analogRead (A1)
   }
+
+  
 //configura o relogio
 void relogio (void){
   rtc.halt(0);

@@ -25,6 +25,8 @@ void relogio (void);
 
 void setup(void){
   Serial.begin(57600);
+  Serial.print("Iniciando....");
+   Serial.print(" ");
   SPI.begin();
   radio.begin();
   //radio.setPALevel(RF24_PA_MAX); //Recomendo para módulo PA+LNA

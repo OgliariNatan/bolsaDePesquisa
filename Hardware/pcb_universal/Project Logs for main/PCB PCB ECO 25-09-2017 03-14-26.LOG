@@ -1,0 +1,10 @@
+Change Component Comment : Designator=R15 Old Comment=Value New Comment=10k
+Change Component Comment : Designator=R16 Old Comment=Value New Comment=10k
+Change Component Comment : Designator=R17 Old Comment=Value New Comment=10k
+Change Component Comment : Designator=C3 Old Comment=Value New Comment=1000uF
+Change Component Comment : Designator=C6 Old Comment=Value New Comment=1000uF
+Change Component Comment : Designator=2 Old Comment=Value New Comment=NTC
+Change Component Designator: OldDesignator=1 NewDesignator=LDR1
+Change Component Designator: OldDesignator=2 NewDesignator=NTC2
+Change Net Name : Old Net Name=Net1_1 New Net Name=NetLDR1_1
+Change Net Name : Old Net Name=Net2_1 New Net Name=NetNTC2_1

@@ -2311,8 +2311,7 @@ uint16 usartReceive9bits(void)
 	uint8 bytel;
 	uint16 byte;
 
-	while(!usartIsReceptionComplete())
-		;	// Waits until last reception ends
+	while(!usartIsReceptionComplete());	// Waits until last reception ends
 	status = UCSR0A;
 	byteh = UCSR0B;
 	bytel = UDR0;

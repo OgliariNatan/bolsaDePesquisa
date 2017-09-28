@@ -4,12 +4,15 @@
  * Created: 14/09/2017 18:06:28
  * Author : Cliente
  */ 
-#define F_CPU 800000UL
+
 
 #include <avr/io.h>
 #include "nrf24l01.h"
 //#include "ATmega328.h"
 #include "globalDefines.h"
+#include <avr/interrupt.h>
+#include <stdio.h>
+
 
 
 
@@ -20,6 +23,9 @@ void process_message(char *message);
 //inline void prepare_led_pin(void);
 //inline void  set_led_high(void);
 //inline void  set_led_low(void);
+void initIO(void);
+void initADC(void);
+int readADC(uint8_t val);
 volatile bool rf_interrupt = false;
 volatile bool send_message = false;
 
@@ -27,15 +33,19 @@ volatile bool send_message = false;
 int main(void)
 {
 	uint8_t address[5] = { 0x01, 0x01, 0x01, 0x01, 0x01 };
+	uint8_t val = 0;
+	initIO();
     sei();
-    nRF24L01 *rf = setup_rf(); //configura os pinos do modulo nrf24l01
+    
+	nRF24L01 *rf = setup_rf(); //configura os pinos do modulo nrf24l01
     nRF24L01_listen(rf, 0, address); //configura o modulo para leitura com endereços pré estabelecidos
     uint8_t addr[5];
 	uint8_t CONFIG = 0; //VERIFICAR APAGAR
     nRF24L01_read_register(rf, CONFIG, addr, 1);//configura a verificação das mensagem
 	
-    while (1) {
 		
+    while (1) {
+		val = readADC(0); //pino 0 das ADC
     }
 }
 
@@ -76,8 +86,27 @@ ISR(INT0_vect) {
 	rf_interrupt = true;
 }
 
+void initIO(){//Configuração de I/O
+	DDRC = 0x00;
+	PORTC = 0xFF;
+}
 
-
+void initADC() {//Conf ADC
+	ADMUX = (1 << REFS0); // Aref = AVcc
+	ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS0); //prescaler 128
+	
+	
+	DDRC &= ~_BV(2); //INPUT
+	PORTC |= _BV(2); //pull high
+	//...
+	};
+	
+int readADC(uint8_t val){
+	ADMUX = (1 << REFS0) | (val & 0x0f);
+	ADCSRA |= (1<<ADSC);
+	while (ADCSRA & (1<<ADSC));
+	return ADCW;
+}
 
 /*Help
 

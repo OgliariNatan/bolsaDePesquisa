@@ -2,7 +2,7 @@
 #include <RF24.h>
 #include <SPI.h>
 #include <DS1307.h>
-#include <math.h>
+//#include <math.h>
 
 #define DEBUG //!<Ativa a depuração
 

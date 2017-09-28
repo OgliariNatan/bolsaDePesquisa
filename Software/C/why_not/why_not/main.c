@@ -2,16 +2,13 @@
  * why_not.c
  *
  * Created: 14/09/2017 18:06:28
- * Author : Cliente
+ * Author : Natan Ogliari
  */ 
 
-
-#include <avr/io.h>
 #include "nrf24l01.h"
 //#include "ATmega328.h"
 #include "globalDefines.h"
-#include <avr/interrupt.h>
-#include <stdio.h>
+#include "usart.h"
 
 
 
@@ -46,6 +43,8 @@ int main(void)
 		
     while (1) {
 		val = readADC(0); //pino 0 das ADC
+		
+		
     }
 }
 

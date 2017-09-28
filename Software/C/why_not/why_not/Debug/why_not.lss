@@ -17,17 +17,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   6 .debug_info   00001a3b  00000000  00000000  00000984  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000009c3  00000000  00000000  000023bf  2**0
+  7 .debug_abbrev 000009b4  00000000  00000000  000023bf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000914  00000000  00000000  00002d82  2**0
+  8 .debug_line   00000914  00000000  00000000  00002d73  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000033c  00000000  00000000  00003698  2**2
+  9 .debug_frame  0000033c  00000000  00000000  00003688  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000685  00000000  00000000  000039d4  2**0
+ 10 .debug_str    0000067f  00000000  00000000  000039c4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000e66  00000000  00000000  00004059  2**0
+ 11 .debug_loc    00000e66  00000000  00000000  00004043  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000f0  00000000  00000000  00004ebf  2**0
+ 12 .debug_ranges 000000f0  00000000  00000000  00004ea9  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -236,7 +236,7 @@ int main(void)
  17c:	0d 92       	st	X+, r0
  17e:	8a 95       	dec	r24
  180:	e1 f7       	brne	.-8      	; 0x17a <main+0x1e>
-	uint8_t botao = 0;
+	uint8_t val = 0;
 	initIO();
  182:	0e 94 99 00 	call	0x132	; 0x132 <initIO>
     sei();
@@ -266,9 +266,11 @@ int main(void)
 	
 		
     while (1) {
-		botao = readADC(0);
+		val = readADC(0); //pino 0 das ADC
  1ae:	80 e0       	ldi	r24, 0x00	; 0
  1b0:	0e 94 9d 00 	call	0x13a	; 0x13a <readADC>
+		
+		
     }
  1b4:	fc cf       	rjmp	.-8      	; 0x1ae <main+0x52>
 

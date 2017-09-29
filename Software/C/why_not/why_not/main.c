@@ -37,6 +37,8 @@ int main(void)
 	nRF24L01 *rf = setup_rf(); //configura os pinos do modulo nrf24l01
     nRF24L01_listen(rf, 0, address); //configura o modulo para leitura com endereços pré estabelecidos
     uint8_t addr[5];
+	usart_init();
+	
 	uint8_t CONFIG = 0; //VERIFICAR APAGAR
     nRF24L01_read_register(rf, CONFIG, addr, 1);//configura a verificação das mensagem
 	

@@ -39,7 +39,8 @@ SUBDIRS :=
 C_SRCS +=  \
 ../ATmega328.c \
 ../main.c \
-../nrf24l01.c
+../nrf24l01.c \
+../usart.c
 
 
 PREPROCESSING_SRCS += 
@@ -51,22 +52,26 @@ ASM_SRCS +=
 OBJS +=  \
 ATmega328.o \
 main.o \
-nrf24l01.o
+nrf24l01.o \
+usart.o
 
 OBJS_AS_ARGS +=  \
 ATmega328.o \
 main.o \
-nrf24l01.o
+nrf24l01.o \
+usart.o
 
 C_DEPS +=  \
 ATmega328.d \
 main.d \
-nrf24l01.d
+nrf24l01.d \
+usart.d
 
 C_DEPS_AS_ARGS +=  \
 ATmega328.d \
 main.d \
-nrf24l01.d
+nrf24l01.d \
+usart.d
 
 OUTPUT_FILE_PATH +=why_not.elf
 
@@ -82,6 +87,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

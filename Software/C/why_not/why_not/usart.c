@@ -1,6 +1,7 @@
 #include "usart.h"
+#include "usart.h"
 
-void usart_init(void){
+void usart_init(){
 	//baud=57000
 	UBRR0H=0x07;
 	UBRR0L=0x00;
@@ -12,12 +13,52 @@ void usart_init(void){
 }
 
 void usart_send_char(unsigned char *ch){
-	UDR = ch;
+	
+	UDRE0 = ch;
 	//espera enviar a mensagem
 	while(!(UCSR0A & _BV(UDRE0)));
 }
 
-void usart_send_char(char *sr){
-		unsigned uint8_t i=0;
-		//while
+void usart_sendstring(char *sr){
+		uint8_t i=0;
+		
+		
+		while(s[i] != '\x0'){
+			usart_send_char(s[i++]);
+		}
 }
+
+void usart_send_hex(unsigned char *ch){
+	unsigned char i, temp;
+	for (i=0; i<2; i++)	{
+		temp = (ch & 0xF0)>>4;
+		if (temp <= 9){
+			usart_send_char('0'+temp);
+		} 
+		else{
+			usart_send_char('A'+temp-10);
+		}
+		ch=ch<<4;
+	}
+}
+
+//interupção USART
+ISR(USART_RX_vect){
+	char status, ch;
+	status = UCSR0A;
+	ch = UDRE0;
+	
+	//verifica ERRO
+	if((status &(_BV(FE) | _BV(DOR))) !=0)
+		return;
+	
+	if (ch>='a' && ch<='z') {
+		ch=ch-'a'+'A';
+	} 
+	else if (ch>='A' && ch<='z'){
+		ch=ch-'A'+'a';
+	}
+	usart_send_char(ch);
+}
+	
+	

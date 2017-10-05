@@ -8,6 +8,7 @@
 #define F_CPU 8000000UL //CUIDADO COM O A biblioteca: globalDefine.h F_CPU
 
 #include "nrf24l01.h"
+#include "nrf24l01-mnemonics.h"
 #include "ATmega328.h"
 #include "globalDefines.h"
 #include <string.h>

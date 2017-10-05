@@ -7,3 +7,9 @@ Software/C/why_not/*.atsln
 Software/C/why_not/why_not/Debug
 Software/C/why_not/why_not/*.xml
 Software/C/why_not/why_not/*.cproj
+
+Software/C/why_not_TX/*.vs
+Software/C/why_not_TX/*.atsln
+Software/C/why_not_TX/why_not_TX/Debug
+Software/C/why_not_TX/why_not_TX/*.xml
+Software/C/why_not_TX/why_not_TX/*.cproj

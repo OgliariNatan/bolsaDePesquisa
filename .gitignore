@@ -13,3 +13,4 @@ Software/C/why_not_TX/*.atsln
 Software/C/why_not_TX/why_not_TX/Debug
 Software/C/why_not_TX/why_not_TX/*.xml
 Software/C/why_not_TX/why_not_TX/*.cproj
+*.sh

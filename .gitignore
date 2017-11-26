@@ -14,4 +14,11 @@ Software/C/why_not_TX/*.atsln
 Software/C/why_not_TX/why_not_TX/Debug
 Software/C/why_not_TX/why_not_TX/*.xml
 Software/C/why_not_TX/why_not_TX/*.cproj
+
+Software/C/gateway_i2cLCD/*.vs
+Software/C/gateway_i2cLCD/*.atsln
+Software/C/gateway_i2cLCD/gateway_i2cLCD/Debug
+Software/C/gateway_i2cLCD/gateway_i2cLCD/*.xml
+Software/C/gateway_i2cLCD/gateway_i2cLCD/*.cproj
+
 *.sh

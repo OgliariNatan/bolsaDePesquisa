@@ -1,6 +1,7 @@
 #ignore everything
 *~
 #but not these files
+#Descrição dos arquivos´pastas a serem ignorados
 
 Software/C/why_not/*.vs
 Software/C/why_not/*.atsln
